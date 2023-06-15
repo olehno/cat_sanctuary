@@ -4,9 +4,7 @@ class CatSanctuary {
   final String description;
   final String imageUrl;
 
-
-  const CatSanctuary
-      ({
+  const CatSanctuary({
     required this.id,
     required this.title,
     required this.description,
