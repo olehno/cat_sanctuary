@@ -1,6 +1,6 @@
+import 'package:cat_sanctuary/cats.dart';
 import 'package:flutter/material.dart';
 
-import 'cats.dart';
 
 class CatSanctuaryPage extends StatelessWidget {
   const CatSanctuaryPage({super.key});
@@ -11,9 +11,9 @@ class CatSanctuaryPage extends StatelessWidget {
     final index = today % cats.length;
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          "Tobby Cat",
-          style: TextStyle(color: Colors.white),
+        title: Text(
+          cats[index].title,
+          style: const TextStyle(color: Colors.white),
         ),
         backgroundColor: Colors.brown,
       ),

@@ -1,6 +1,5 @@
 import 'package:cat_sanctuary/cat_sanctuary.dart';
 import 'package:flutter/material.dart';
-import 'cats.dart';
 
 
 class CatSanctuaryListItem extends StatelessWidget {
@@ -20,7 +19,7 @@ class CatSanctuaryListItem extends StatelessWidget {
             height: 120,
             fit: BoxFit.cover,
           ),
-          SizedBox(
+          const SizedBox(
             width: 16,
           ),
           Expanded(
@@ -31,9 +30,9 @@ class CatSanctuaryListItem extends StatelessWidget {
               children: [
                 Text(
                   cats.title,
-                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+                  style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Text(
                   cats.description,
                   maxLines: 3,

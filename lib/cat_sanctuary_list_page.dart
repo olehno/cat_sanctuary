@@ -1,6 +1,6 @@
 import 'package:cat_sanctuary/cat_sanctuary_list_item.dart';
+import 'package:cat_sanctuary/cats.dart';
 import 'package:flutter/material.dart';
-import 'cats.dart';
 
 class CatSanctuaryListPage extends StatelessWidget {
   @override

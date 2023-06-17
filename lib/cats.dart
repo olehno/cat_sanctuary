@@ -1,7 +1,7 @@
-import 'cat_sanctuary.dart';
+import 'package:cat_sanctuary/cat_sanctuary.dart';
 
 final cats = [
-  CatSanctuary(
+  const CatSanctuary(
     id: '1',
     title: 'Tobby Cat',
     description:
@@ -9,7 +9,7 @@ final cats = [
     imageUrl:
     'https://images.unsplash.com/photo-1608848461950-0fe51dfc41cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxleHBsb3JlLWZlZWR8M3x8fGVufDB8fHx8fA%3D%3D&w=1000&q=80',
   ),
-  CatSanctuary(
+  const CatSanctuary(
     id: '2',
     title: 'Persian Cat',
     description:
@@ -17,7 +17,7 @@ final cats = [
     imageUrl:
     'https://upload.wikimedia.org/wikipedia/commons/1/15/Cat_August_2010-4.jpg',
   ),
-  CatSanctuary(
+  const CatSanctuary(
     id: '3',
     title: 'Domestic Cat',
     description:
@@ -25,7 +25,7 @@ final cats = [
     imageUrl:
     'https://static01.nyt.com/images/2022/11/29/science/00tb-cats1/00tb-cats1-mediumSquareAt3X.jpg',
   ),
-  CatSanctuary(
+  const CatSanctuary(
     id: '4',
     title: 'Bengal Cat',
     description:
