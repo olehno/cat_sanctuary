@@ -1,8 +1,12 @@
+import 'package:cat_sanctuary/cat_details_page.dart';
 import 'package:cat_sanctuary/cat_sanctuary_list_item.dart';
 import 'package:flutter/material.dart';
+
 import 'cats.dart';
 
 class CatSanctuaryListPage extends StatelessWidget {
+  const CatSanctuaryListPage({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +33,15 @@ class CatSanctuaryListPage extends StatelessWidget {
             child: ListView.builder(
               itemBuilder: (context, index) {
                 final item = cats[index];
-                return CatSanctuaryListItem(cats: item);
+                return GestureDetector(
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => CatDetailsPage(cat: item),
+                        ),
+                      );
+                    },
+                    child: CatSanctuaryListItem(cats: item));
               },
               itemCount: cats.length,
             ),
