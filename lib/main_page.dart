@@ -18,7 +18,7 @@ class _MainPageState extends State<MainPage> {
       body: IndexedStack(
         index: _selectedTabIndex,
         children: [
-          const CatSanctuaryListPage(),
+          const CatsSanctuaryListPage(),
           const CatSanctuaryPage(),
           Container(
             color: Colors.yellow,
