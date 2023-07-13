@@ -15,8 +15,8 @@ class CatsSanctuaryListPage extends StatefulWidget {
 }
 
 class _CatsSanctuaryListPageState extends State<CatsSanctuaryListPage> {
-  late final CatsRepository catsRepository;
-  Future<List<CatSanctuary>>? catsFuture;
+  late final CatsRepository _catsRepository;
+  Future<List<CatSanctuary>>? _catsFuture;
   final TextEditingController _searchController = TextEditingController();
   Timer? _debouncer;
 
@@ -27,7 +27,7 @@ class _CatsSanctuaryListPageState extends State<CatsSanctuaryListPage> {
     _debouncer = Timer(const Duration(seconds: 1), () {
       final query = _searchController.text;
       setState(() {
-        catsFuture = catsRepository.search(query);
+        _catsFuture = _catsRepository.search(query);
       });
     });
   }
@@ -35,8 +35,8 @@ class _CatsSanctuaryListPageState extends State<CatsSanctuaryListPage> {
   @override
   void initState() {
     super.initState();
-    catsRepository = context.read();
-    catsFuture = catsRepository.getCats();
+    _catsRepository = context.read();
+    _catsFuture = _catsRepository.getCats();
     _searchController.addListener(() {
       _debounceSearch();
     });
@@ -74,7 +74,7 @@ class _CatsSanctuaryListPageState extends State<CatsSanctuaryListPage> {
           const SizedBox(height: 15),
           Expanded(
             child: FutureBuilder<List<CatSanctuary>>(
-              future: catsFuture,
+              future: _catsFuture,
               builder: (context, snapShot) {
                 if (snapShot.connectionState == ConnectionState.waiting) {
                   return const Center(
@@ -84,21 +84,16 @@ class _CatsSanctuaryListPageState extends State<CatsSanctuaryListPage> {
                 final cats = snapShot.data ?? [];
                 return Column(
                   children: [
-                    // TextFormField(
-                    //   controller: _searchController,
-                    // ),
+                    TextFormField(
+                      controller: _searchController,
+                    ),
                     Expanded(
                       child: ListView.builder(
                         itemBuilder: (context, index) {
                           final item = cats[index];
                           return GestureDetector(
                               onTap: () {
-                                Navigator.of(context).push(
-                                  MaterialPageRoute(
-                                    builder: (context) =>
-                                        CatDetailsPage(cat: item),
-                                  ),
-                                );
+                                _openCatDetailsPage(item);
                               },
                               child: CatSanctuaryListItem(cats: item));
                         },
@@ -111,6 +106,14 @@ class _CatsSanctuaryListPageState extends State<CatsSanctuaryListPage> {
             ),
           ),
         ],
+      ),
+    );
+  }
+  void _openCatDetailsPage(CatSanctuary item){
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) =>
+            CatDetailsPage(cat: item),
       ),
     );
   }

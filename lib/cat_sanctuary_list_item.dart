@@ -1,7 +1,5 @@
 import 'package:cat_sanctuary/cat_sanctuary.dart';
 import 'package:flutter/material.dart';
-import 'cats.dart';
-
 
 class CatSanctuaryListItem extends StatelessWidget {
   final CatSanctuary cats;
